@@ -39,13 +39,13 @@ export default function FilterPanel({ query, setQuery }) {
                     }}
                 />
                 <select  onChange={(e) => handleChange(e, "role")}>
-                    <option value="">Select a role</option>
+                    <option value="all">Select a role</option>
                     <option value="Developer">Developer</option>
-                    <option value="Design">Designer</option>
+                    <option value="Designer">Designer</option>
                     <option value="Marketing">Marketing</option>
                 </select>
                 <select onChange={(e) => handleChange(e, "status")}>
-                    <option value="">Select user status</option>
+                    <option value="all">Select user status</option>
                     <option value="I">Inactive</option>
                     <option value="A">Active</option>
                 </select>

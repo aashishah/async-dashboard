@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import FilterPanel from "./FilterPanel";
 import UsersTable from "./UsersTable";
 import TopBar from "./TopBar";
+import Pagination from "./Pagination";
 
 export default function Workspace() {
   const [query, setQuery] = useState({
     search: "",
     role: "all",
+    status: "all",
     sortBy: "name",
     sortOrder: "asc",
-    page: 1
+    page: 1,
+    totalPages: 1
   });
 
   const users= [
@@ -22,6 +25,8 @@ export default function Workspace() {
       { id: 7, name: 'Gavin', email: 'gav@gmail.com', age: 35, role: "Developer", status: "A" },
       { id: 8, name: 'Hermione', email: 'hermy@gmail.com', age: 24, role: "Designer", status: "I" },]
 
+    const pageSize = 3;
+
   return (
     <>
     <TopBar query={query} setQuery={setQuery} />
@@ -29,6 +34,7 @@ export default function Workspace() {
       <FilterPanel query={query} setQuery={setQuery} />
       <UsersTable query={query} setQuery={setQuery} users={users}/>
       </div>
+      {/* <Pagination query={query} setQuery={setQuery} totalPages={1} pageSize = {pageSize} /> */}
     </>
   );
 }

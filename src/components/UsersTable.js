@@ -12,11 +12,11 @@ export default function UserTable({ query, setQuery, users }) {
   );
   }
 
-  if(query && query.role){
+  if(query && query.role && query.role !== "all"){
     filteredUsers = [...filteredUsers].filter(user => user.role === query.role);
   }
 
-  if(query && query.status){
+  if(query && query.status && query.status !== "all"){
     filteredUsers = [...filteredUsers].filter(user => user.status === query.status);
   }
 
