@@ -1,16 +1,25 @@
 import { useState } from "react";
 
-export default function UserTable(query, setQuery, users) {
+export default function UserTable({ query, setQuery, users }) {
 
-    let filteredUsers = users;
+  let filteredUsers = users;
 
   // FILTER
-  if(query && query.search){
+  if(query && query.search.length > 0){
    filteredUsers = [...filteredUsers].filter(user =>
     user.name.toLowerCase().includes(query.search.toLowerCase()) ||
     user.email.toLowerCase().includes(query.search.toLowerCase())
   );
   }
+
+  if(query && query.role){
+    filteredUsers = [...filteredUsers].filter(user => user.role === query.role);
+  }
+
+  if(query && query.status){
+    filteredUsers = [...filteredUsers].filter(user => user.status === query.status);
+  }
+
   // SORT
   if(query && query.sortBy){
     filteredUsers = [...filteredUsers].sort((a, b) => {
@@ -37,10 +46,12 @@ export default function UserTable(query, setQuery, users) {
       <table>
         <thead>
           <tr>
-            <th onClick={() => setQuery([...query.sortBy = 'id'])}>ID</th>
-            <th onClick={() => setQuery("name")}>Name</th>
-            <th onClick={() => setQuery("email")}>E-mail</th>
-            <th onClick={() => setQuery("age")}>Age</th>
+            <th onClick={() => setQuery({ ...query, sortBy: 'id' })}>ID</th>
+            <th onClick={() => setQuery({ ...query, sortBy: 'name' })}>Name</th>
+            <th onClick={() => setQuery({ ...query, sortBy: 'email' })}>E-mail</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th onClick={() => setQuery({ ...query, sortBy: 'age' })}>Age</th>
           </tr>
         </thead>
         <tbody>
@@ -50,6 +61,8 @@ export default function UserTable(query, setQuery, users) {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.age}</td>
+              <td>{user.role}</td>
+              <td>{user.status === "A" ? "Active" : "Inactive"}</td>
             </tr>
           ))}
         </tbody>
