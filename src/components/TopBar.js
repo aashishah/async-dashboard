@@ -14,13 +14,6 @@ export default function TopBar({ query, setQuery }) {
             </button>
         </div>
         </div>
-        {/* {filterState && "Showing " + filterState + " items only"}
-        <div>
-            <ul>
-                {filteredItems.map(item => (<li key={item.id}>{item.id}. <b>{item.title}</b> - {item.status}</li>))}
-            </ul>
-        </div>
-        </> */}
         </>
     )
 }

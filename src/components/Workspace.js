@@ -11,8 +11,7 @@ export default function Workspace() {
     status: "all",
     sortBy: "name",
     sortOrder: "asc",
-    page: 1,
-    totalPages: 1
+    page: 1
   });
 
   const users= [
@@ -25,16 +24,54 @@ export default function Workspace() {
       { id: 7, name: 'Gavin', email: 'gav@gmail.com', age: 35, role: "Developer", status: "A" },
       { id: 8, name: 'Hermione', email: 'hermy@gmail.com', age: 24, role: "Designer", status: "I" },]
 
-    const pageSize = 3;
+  const pageSize = 3;
 
+  let filteredUsers = users;
+
+  // SERACH
+  if (query && query.search.length > 0) {
+    filteredUsers = [...filteredUsers].filter(user =>
+      user.name.toLowerCase().includes(query.search.toLowerCase()) ||
+      user.email.toLowerCase().includes(query.search.toLowerCase())
+    );
+  }
+
+  if (query && query.role && query.role !== "all") {
+    filteredUsers = [...filteredUsers].filter(user => user.role === query.role);
+  }
+
+  if (query && query.status && query.status !== "all") {
+    filteredUsers = [...filteredUsers].filter(user => user.status === query.status);
+  }
+
+  // SORT
+  if (query && query.sortBy) {
+    filteredUsers = [...filteredUsers].sort((a, b) => {
+      if (a[query.sortBy] < b[query.sortBy]) return query.sortOrder === "asc" ? -1 : 1;
+      if (a[query.sortBy] > b[query.sortBy]) return query.sortOrder === "asc" ? 1 : -1;
+      return 0;
+    });
+  }
+
+  const totalPages = Math.ceil(filteredUsers.length / pageSize);
+
+
+  // PAGINATE
+  if (query && query.page) {
+    const startIndex = (query.page - 1) * pageSize;
+    filteredUsers = [...filteredUsers].slice(
+      startIndex,
+      startIndex + pageSize
+    );
+  }
   return (
     <>
     <TopBar query={query} setQuery={setQuery} />
     <div className="dash">
       <FilterPanel query={query} setQuery={setQuery} />
-      <UsersTable query={query} setQuery={setQuery} users={users}/>
+      <UsersTable query={query} setQuery={setQuery} users={filteredUsers}/>
       </div>
-      {/* <Pagination query={query} setQuery={setQuery} totalPages={1} pageSize = {pageSize} /> */}
+      <Pagination query = {query} totalPages={totalPages} setQuery={setQuery} />
     </>
   );
 }

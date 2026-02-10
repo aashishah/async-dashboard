@@ -1,17 +1,22 @@
-{/* <div className="pagination">
-          <button
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage(p => p - 1)}
-          >
-            Prev
-          </button>
+export default function Pagination({ query, setQuery, totalPages }) {
 
-          {currentPage} / {totalPages}
+  return (
+    <div className="pagination">
+      <button
+        disabled={query.page === 1}
+        onClick={() => setQuery({ ...query, page: query.page - 1 })}
+      >
+        Prev
+      </button>
 
-          <button
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage(p => p + 1)}
-          >
-            Next
-          </button>
-        </div> */}
+      <span>{query.page} / {totalPages}</span>
+
+      <button
+        disabled={query.page === totalPages}
+        onClick={() => setQuery({ ...query, page: query.page + 1 })}
+      >
+        Next
+      </button>
+    </div>
+  );
+}
