@@ -5,7 +5,9 @@ export default function UserTable({ query, setQuery, users }) {
   
 
   return (
-    <div className="user-table">
+    <>
+    {!users || users.length === 0 ? (<div>Loading Users</div>) : null}
+    {users && (<div className="user-table">
       <table>
         <thead>
           <tr>
@@ -30,6 +32,7 @@ export default function UserTable({ query, setQuery, users }) {
           ))}
         </tbody>
       </table>
-    </div>
+    </div>)}
+    </>
   );
 }
