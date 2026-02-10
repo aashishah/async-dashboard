@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 export default function UserTable({ query, setQuery, users }) {
 
@@ -12,9 +12,9 @@ export default function UserTable({ query, setQuery, users }) {
             <th onClick={() => setQuery({ ...query, sortBy: 'id' })}>ID</th>
             <th onClick={() => setQuery({ ...query, sortBy: 'name' })}>Name</th>
             <th onClick={() => setQuery({ ...query, sortBy: 'email' })}>E-mail</th>
+            <th onClick={() => setQuery({ ...query, sortBy: 'age' })}>Age</th>
             <th>Role</th>
             <th>Status</th>
-            <th onClick={() => setQuery({ ...query, sortBy: 'age' })}>Age</th>
           </tr>
         </thead>
         <tbody>

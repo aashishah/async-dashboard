@@ -50,13 +50,6 @@ export default function FilterPanel({ query, setQuery }) {
                     <option value="A">Active</option>
                 </select>
             </div>
-            {/* {filterState && "Showing " + filterState + " items only"}
-        <div>
-            <ul>
-                {filteredItems.map(item => (<li key={item.id}>{item.id}. <b>{item.title}</b> - {item.status}</li>))}
-            </ul>
-        </div>
-        </> */}
         </>
     )
 }
