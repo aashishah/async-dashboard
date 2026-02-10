@@ -1,11 +1,13 @@
- body {
+ html, body {
       font-family: system-ui, -apple-system, sans-serif;
       background: #fafafa;
-      padding: 40px;
+      padding: 10px;
+      height: 100%;
     }
 
     #root{
         width: 100%;
+        height: 100%;
     }
 
     .user-table{
@@ -45,31 +47,51 @@
      justify-content: center;
      gap: 20px;
       width: 100%;
-    }
+      height: 75%;
 
-    .bottom{
-        margin-top: 20px;
+      .left-panel{
+        width: 250px;
+          flex-direction: column;
+          gap: 20px;
+          font-size: 14px;
+          justify-content: space-evenly;
+          margin-top: 20px;
         padding: 12px 16px;
-        font-size: 14px;
-        width: 100%;
-        color: #639fee;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
 
-    }
-    
-    .left{
-        margin-top: 20px;
-        padding: 12px 16px;
+        button{
+          margin-top: 20px;;
+        }
+      }
+
+      .left{
+       width: 200px;
         font-size: 14px;
-        width: 100%;
         color: #639fee;
         display: flex;
         flex-direction: column;
+        gap: 12px;
         justify-content: space-evenly;
 
+
+        select{
+          width: 100%;  
+        }
+
     }
+
+    }
+
+    .topbar{
+        margin: 20px;
+        font-size: 14px;
+        color: #639fee;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 5px;
+
+    }
+    
 
     input{
 
@@ -78,7 +100,6 @@
                     border: 1px solid rgb(60, 63, 68);
                     font-size: 13px;
                     color: rgb(247, 248, 248);
-                   width: 200px;
                     appearance: none;
                     transition: border 0.15s ease 0s;
                     :focus{
@@ -93,6 +114,9 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        width: 200px;
+        float: right;
+        margin-top: 40px;
     }
 
     button {
@@ -105,11 +129,30 @@
       cursor: pointer;
       font-size: 14px;
     }
+  
+    .open-form{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      padding: 10px 20px;
+      
+      button{
+        height: 28px;
+      }
+
+      span{
+        color: rgb(100, 153, 255);
+      }
+    }
 
     .form-submission{
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
+      border: 3px rgb(100, 153, 255) solid;
+      width: fit-content;
+      padding: 20px;
 
       input{
         margin: 8px 0;
@@ -125,6 +168,7 @@
       cursor: pointer;
       font-size: 14px;
       margin: 8px 0;
+      width: 120px;
     }
 
     label{
@@ -145,3 +189,5 @@
       margin-top: 10px;
       border: 2px solid black;
     }
+
+    

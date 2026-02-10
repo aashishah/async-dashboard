@@ -31,6 +31,7 @@ export default function FilterPanel({ query, setQuery }) {
     return (
         <>
             <div className="left">
+                <span>SEARCH</span>
                 <input
                     type="text"
                     placeholder="Filter by name or email..."
@@ -38,6 +39,7 @@ export default function FilterPanel({ query, setQuery }) {
                         handleSearch(e);
                     }}
                 />
+                <span>FILTER</span>
                 <select  onChange={(e) => handleChange(e, "role")}>
                     <option value="all">Select a role</option>
                     <option value="Developer">Developer</option>
