@@ -27,7 +27,14 @@ export default function Workspace() {
         { id: 5, name: 'Emily', email: 'em@gmail.com', age: 34, role: "Designer", status: "A" },
         { id: 6, name: 'Ferb', email: 'fer@gmail.com', age: 29, role: "Marketing", status: "I" },
         { id: 7, name: 'Gavin', email: 'gav@gmail.com', age: 35, role: "Developer", status: "A" },
-        { id: 8, name: 'Hermione', email: 'hermy@gmail.com', age: 24, role: "Designer", status: "I" }]);
+        { id: 8, name: 'Hermione', email: 'hermy@gmail.com', age: 24, role: "Designer", status: "I" },
+        { id: 9, name: 'Isabella', email: 'is@gmail.com', age: 31, role: "Marketing", status: "A" },
+        { id: 10, name: 'John', email: 'j@gmail.com', age: 28, role: "Developer", status: "I" },
+        { id: 11, name: 'Kevin', email: 'k@gmail.com', age: 27, role: "Designer", status: "A" },
+        { id: 12, name: 'Liam', email: 'l@gmail.com', age: 30, role: "Marketing", status: "I" },
+        { id: 13, name: 'Mia', email: 'm@gmail.com', age: 26, role: "Developer", status: "A" },
+        { id: 14, name: 'Noah', email: 'n@gmail.com', age: 33, role: "Designer", status: "I" },
+      ]);
     }, 1000);
 
     return () => {

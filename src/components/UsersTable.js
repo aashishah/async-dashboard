@@ -6,8 +6,8 @@ export default function UserTable({ query, setQuery, users }) {
 
   return (
     <>
-    {!users || users.length === 0 ? (<div>Loading Users</div>) : null}
-    {users && (<div className="user-table">
+    {!users || users.length === 0 ? (<h1>Loading Users</h1>) : null}
+    {users && users.length !== 0  && (<div className="user-table">
       <table>
         <thead>
           <tr>

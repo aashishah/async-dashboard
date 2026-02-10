@@ -30,7 +30,7 @@ export default function AddUserModal({ setUsers }) {
     }
 
     return (<>
-    {onOpen ? <div className="open-form"><span>Add New User</span><button onClick={() => setOnOpen(false)}>Close Form</button></div> : <button onClick={() => setOnOpen(true)}>Add New User</button>}
+    {onOpen ? <div className="open-form"><span>Add User</span><button onClick={() => setOnOpen(false)}>Close Form</button></div> : <button onClick={() => setOnOpen(true)}>Add New User</button>}
     {onOpen &&
     
     <form className="form-submission" onSubmit={(e) => {
